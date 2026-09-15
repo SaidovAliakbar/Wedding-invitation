@@ -1,90 +1,27 @@
-# Aziza & Ravshan — Wedding Invitation v2
+# Wedding invitation — Cloudflare Pages + D1
 
-Обновлённая версия: editorial / royal serif, тёплая ivory-палитра, объёмные embossed-узоры, liquid-glass элементы, современный desktop-контейнер и рабочий RSVP через Node.js.
+Статический свадебный сайт без build step и без server-side Node.js.
 
-## Запуск RSVP
+## Cloudflare Pages
 
-Требуется Node.js 18+:
+- Framework: None
+- Build command: оставить пустым
+- Build output directory: `.`
+- Root directory: `/`
+- Deploy command: оставить пустым
+- Version command: оставить пустым
 
-```bash
-npm start
-```
+Папка `functions/` автоматически используется как Pages Functions.
 
-Открыть http://localhost:3000
+## D1
 
-При локальном запуске ответы добавляются в `guests.txt`.
+Создайте Pages Function binding:
 
-### Почему иногда RSVP "не работает"
+- Variable name: `RSVP_DB`
+- Resource: ваша D1 database
 
-Не открывайте `index.html` двойным кликом через `file://`: браузер не сможет обратиться к `/api/rsvp`.
-Запускайте через `npm start` / `node server.js`.
+Затем выполните `schema.sql` в этой базе.
 
-Если сайт открыт на статическом хостинге, форма сохраняет ответ в `localStorage` этого устройства.
+Endpoint формы: `POST /api/rsvp`.
 
-## Деплой на Cloudflare Pages
-
-Cloudflare Pages публикует статические файлы. `server.js` там не запускается, поэтому RSVP на Pages сохраняется в `localStorage` текущего устройства.
-
-Для ручного деплоя Pages используйте:
-
-```bash
-npx wrangler pages deploy . --project-name wedding-invitation
-```
-
-Не используйте `wrangler deploy`: это деплой Worker. Для Pages используйте `wrangler pages deploy`.
-
-## Данные свадьбы
-
-- Азиза & Равшан
-- 04.10.2026
-- Omad, Ургенч
-- начало: 18:00 (Asia/Tashkent)
-
-Время countdown меняется в `script.js`:
-`new Date("2026-10-04T18:00:00+05:00")`
-
-## Дизайн
-
-Основная композиция намеренно не заполняет страницу "карточками ради карточек": каждая секция работает как отдельный разворот приглашения — hero, бумажное письмо, стеклянный блок деталей, countdown и RSVP-card.
-
-## V3 inspiration
-Визуальный апгрейд опирается на актуальные свадебные stationery-приёмы: navy/ivory botanical crest, декоративные wreath/monogram, blind-embossing и плотные орнаментальные рамки. Для первой страницы сохранён крупный floral hero, а тёмные страницы теперь получили кремовые свадебные орнаменты и герб.
-
-## V4
-- Убран набор SaaS-похожих карточек из секции важного дня.
-- Вместо них — центральная королевская plaque-композиция с гербом, датой, местом и временем.
-- Вторая страница вокруг бумажного листа получила дополнительные орнаменты и рамки.
-- Подпись `Ravshanbek & Aziza` переведена на декоративный свадебный script-шрифт.
-- Для desktop добавлена лёгкая pointer-tilt анимация главной royal plaque.
-
-## V5
-- Шрифтовая система стала более свадебной: DM Serif Display для крупных титулов и Great Vibes/Ballet для рукописных акцентов.
-- Месяц в датах локализуется: OKTYABR / ОКТЯБРЯ / OCTOBER.
-- Дата отображается как `4 OKTYABR 2026`, без тяжёлого цифрового `04.10`.
-- Reveal-анимации перестроены на последовательное появление родителя и декора, чтобы элементы не выезжали друг на друга.
-- На мобильных декоративные элементы уменьшены и разведены от центральной royal plaque.
-
-## V6
-- Groom name is now `Ravshanbek` everywhere.
-- Hero uses Bodoni Moda for a stronger couture/royal serif appearance.
-- Month is no longer rendered in an oversized script: `OKTYABR / ОКТЯБРЯ / OCTOBER` is a compact high-contrast serif italic.
-- Date layout was separated into number / month / year to prevent overlap with the stationery mockup.
-
-## V7
-- На первую страницу добавлена объёмная embossed vintage-frame композиция по четырём углам и по периметру.
-- Добавлен внутренний glow-ring и двойной рельефный слой рамки.
-- Для каллиграфических акцентов вместо Ballet/Great Vibes используется Parisienne; основные имена остаются на Cormorant Garamond.
-- Декоративные элементы первой страницы усилены тенями и бликами для ощущения тиснения.
-
-## V8
-- Русский режим теперь показывает имена кириллицей: `Равшанбек & Азиза`.
-- Имена в русском режиме становятся курсивными.
-- Плавающие инициалы `R & A` возле hero-текста удалены.
-- Английский/узбекский режим сохраняют латиницу.
-
-## V9
-- Используется приложенный пользователем `Runethia.otf` для латинского декоративного текста.
-- Runethia не содержит кириллицу, поэтому для русской версии используется близкий по характеру `Marck Script` с кириллицей; при этом все декоративные роли получают один и тот же типографический treatment.
-- На первой странице убраны боковые цветочные узоры; оставлена и усилена только объёмная винтажная рамка по краям.
-- Русский режим: `Равшанбек & Азиза`.
-- Узбекский/английский режим: `Ravshanbek & Aziza`.
+Локально статическую часть можно открыть через любой локальный HTTP-сервер, например `python3 -m http.server 8080`.

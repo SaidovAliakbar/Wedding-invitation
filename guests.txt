@@ -1,4 +1,0 @@
-# RSVP log: date/time | guest | attendance
-13.09.2026, 15:12:54 | Test Guest | ПРИДЁТ
-14.09.2026, 21:17:24 | лтсктлкс | НЕ ПРИДЁТ
-15.09.2026, 12:31:07 | Production check | ПРИДЁТ
