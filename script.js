@@ -140,11 +140,11 @@ form.addEventListener("submit", async (event) => {
     form.reset();
     $$(".choice").forEach((el, i) => el.classList.toggle("active", i===0));
   } catch {
-    msg.textContent = lang === "ru"
-      ? "Не удалось отправить ответ в Telegram. Попробуйте ещё раз."
-      : lang === "en"
-        ? "The response could not be sent. Please try again."
-        : "Javobni yuborib bo'lmadi. Qayta urinib ko'ring.";
+    const key = "aziza-ravshan-rsvp-v2";
+    const saved = JSON.parse(localStorage.getItem(key) || "[]");
+    saved.push(payload);
+    localStorage.setItem(key, JSON.stringify(saved));
+    msg.textContent = translations[lang].local;
   }
 });
 

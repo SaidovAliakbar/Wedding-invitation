@@ -12,35 +12,18 @@ npm start
 
 Открыть http://localhost:3000
 
-При отправке RSVP ответ приходит в Telegram через Bot API. Файл `guests.txt` больше не используется.
-
-Перед запуском задайте переменные окружения:
-
-```powershell
-$env:TELEGRAM_BOT_TOKEN = "токен_бота_от_BotFather"
-$env:TELEGRAM_CHAT_ID = "ваш_chat_id"
-npm start
-```
-
-`api_id` и `api_hash` Telegram-клиента для Bot API не нужны. Их нельзя хранить в проекте или публиковать.
+При локальном запуске ответы добавляются в `guests.txt`.
 
 ### Почему иногда RSVP "не работает"
 
 Не открывайте `index.html` двойным кликом через `file://`: браузер не сможет обратиться к `/api/rsvp`.
 Запускайте через `npm start` / `node server.js`.
 
-Если Telegram не настроен или недоступен, сервер вернёт ошибку, чтобы ответ не потерялся незаметно.
+Если сайт открыт на статическом хостинге, форма сохраняет ответ в `localStorage` этого устройства.
 
 ## Деплой на Cloudflare Pages
 
-Cloudflare Pages не запускает `server.js`. Для RSVP используется Pages Function `functions/api/rsvp.js`.
-
-В настройках проекта Cloudflare Pages добавьте Secrets/Environment variables для Production:
-
-- `TELEGRAM_BOT_TOKEN` — токен бота от BotFather
-- `TELEGRAM_CHAT_ID` — ID чата, куда бот отправляет ответы
-
-После публикации форма продолжит обращаться к `/api/rsvp`, а Cloudflare автоматически направит запрос в Pages Function.
+Cloudflare Pages публикует статические файлы. `server.js` там не запускается, поэтому RSVP на Pages сохраняется в `localStorage` текущего устройства.
 
 Для ручного деплоя Pages используйте:
 
@@ -48,7 +31,7 @@ Cloudflare Pages не запускает `server.js`. Для RSVP использ
 npx wrangler pages deploy . --project-name wedding-invitation
 ```
 
-Не используйте `wrangler deploy`: это деплой Worker, а данный проект является Cloudflare Pages-проектом.
+Не используйте `wrangler deploy`: это деплой Worker. Для Pages используйте `wrangler pages deploy`.
 
 ## Данные свадьбы
 
