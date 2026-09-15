@@ -42,6 +42,14 @@ Cloudflare Pages не запускает `server.js`. Для RSVP использ
 
 После публикации форма продолжит обращаться к `/api/rsvp`, а Cloudflare автоматически направит запрос в Pages Function.
 
+Для ручного деплоя Pages используйте:
+
+```bash
+npx wrangler pages deploy . --project-name wedding-invitation
+```
+
+Не используйте `wrangler deploy`: это деплой Worker, а данный проект является Cloudflare Pages-проектом.
+
 ## Данные свадьбы
 
 - Азиза & Равшан
