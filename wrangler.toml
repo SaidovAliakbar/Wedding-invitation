@@ -1,0 +1,12 @@
+name = "wedding-invitation"
+main = "src/index.js"
+compatibility_date = "2026-09-15"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "RSVP_DB"
+database_name = "wedding-rsvp"
+database_id = "b012da1e-b053-4974-9d4f-8f52d69be536"

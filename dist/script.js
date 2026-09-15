@@ -155,7 +155,7 @@ form.addEventListener("submit", async (event) => {
     const res = await fetch("/api/rsvp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, attendance }),
+      body: JSON.stringify({ name, attending: attendance }),
       signal: controller.signal,
       cache: "no-store"
     });
