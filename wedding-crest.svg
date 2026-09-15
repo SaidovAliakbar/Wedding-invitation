@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<defs>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2d5"/><stop offset=".25" stop-color="#c29b61"/><stop offset=".53" stop-color="#f4e4c3"/><stop offset=".8" stop-color="#9f7c49"/><stop offset="1" stop-color="#ead6af"/></linearGradient>
+<filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="6" flood-opacity=".58"/></filter>
+<filter id="emboss"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="blur"/><feSpecularLighting in="blur" surfaceScale="5" specularConstant=".5" specularExponent="18" lighting-color="#fff" result="spec"><feDistantLight azimuth="225" elevation="60"/></feSpecularLighting><feComposite in="spec" in2="SourceAlpha" operator="in" result="spec2"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="spec2"/></feMerge></filter>
+</defs>
+<g fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
+<ellipse cx="250" cy="262" rx="154" ry="170"/>
+<path d="M250 92 C212 46 160 63 145 105 C132 142 159 170 191 165"/>
+<path d="M250 92 C288 46 340 63 355 105 C368 142 341 170 309 165"/>
+<path d="M142 129 C104 97 70 120 77 153 C85 184 119 190 144 168"/>
+<path d="M358 129 C396 97 430 120 423 153 C415 184 381 190 356 168"/>
+<path d="M144 343 C103 377 94 420 126 440 C158 460 187 437 181 402"/>
+<path d="M356 343 C397 377 406 420 374 440 C342 460 313 437 319 402"/>
+<path d="M153 205 C109 203 85 228 91 261 C98 297 135 303 166 281"/>
+<path d="M347 205 C391 203 415 228 409 261 C402 297 365 303 334 281"/>
+</g>
+<g fill="none" stroke="url(#gold)" stroke-width="7" filter="url(#emboss)">
+<circle cx="232" cy="267" r="62"/><circle cx="268" cy="267" r="62"/>
+</g>
+<g fill="url(#gold)" filter="url(#emboss)">
+<circle cx="250" cy="112" r="7"/><circle cx="112" cy="145" r="7"/><circle cx="388" cy="145" r="7"/><circle cx="129" cy="418" r="7"/><circle cx="371" cy="418" r="7"/>
+</g>
+</svg>

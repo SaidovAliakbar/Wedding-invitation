@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff7e7"/><stop offset=".38" stop-color="#d8c09a"/><stop offset=".7" stop-color="#f7ead2"/><stop offset="1" stop-color="#b99a67"/>
+  </linearGradient>
+  <filter id="ds"><feDropShadow dx="0" dy="7" stdDeviation="4" flood-opacity=".6"/></filter>
+  <filter id="emboss">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.4" result="b"/>
+    <feSpecularLighting in="b" surfaceScale="4" specularConstant=".55" specularExponent="20" lighting-color="#fff" result="s"><feDistantLight azimuth="220" elevation="58"/></feSpecularLighting>
+    <feComposite in="s" in2="SourceAlpha" operator="in" result="spec"/>
+    <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="spec"/></feMerge>
+  </filter>
+</defs>
+<g fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#ds)">
+  <path d="M60 430 C155 420 132 242 247 210 C310 192 335 260 376 284 C416 307 434 218 450 191 C466 218 484 307 524 284 C565 260 590 192 653 210 C768 242 745 420 840 430"/>
+  <path d="M87 396 C158 371 164 284 225 248 M813 396 C742 371 736 284 675 248"/>
+  <path d="M247 210 C217 160 173 150 145 185 C119 219 151 260 195 246 C226 236 250 210 247 210Z"/>
+  <path d="M653 210 C683 160 727 150 755 185 C781 219 749 260 705 246 C674 236 650 210 653 210Z"/>
+  <path d="M450 191 C425 146 382 139 366 176 C353 208 383 229 413 214 M450 191 C475 146 518 139 534 176 C547 208 517 229 487 214"/>
+  <path d="M225 248 C191 228 164 238 159 266 C181 259 201 263 214 281 M675 248 C709 228 736 238 741 266 C719 259 699 263 686 281"/>
+  <path d="M315 335 C338 309 363 307 386 328 C364 343 340 347 315 335Z"/>
+  <path d="M585 335 C562 309 537 307 514 328 C536 343 560 347 585 335Z"/>
+  <path d="M116 330 C145 305 166 307 186 332 C160 342 138 342 116 330Z"/>
+  <path d="M784 330 C755 305 734 307 714 332 C740 342 762 342 784 330Z"/>
+</g>
+<g fill="#f8eddc" stroke="#ab8b5a" stroke-width="2.2" filter="url(#emboss)">
+  <circle cx="450" cy="306" r="15"/>
+  <circle cx="195" cy="246" r="9"/>
+  <circle cx="705" cy="246" r="9"/>
+  <circle cx="186" cy="332" r="8"/>
+  <circle cx="714" cy="332" r="8"/>
+  <circle cx="386" cy="328" r="8"/>
+  <circle cx="514" cy="328" r="8"/>
+</g>
+<g fill="none" stroke="#eedfc1" stroke-width="2.2">
+  <path d="M433 306l-26-12m26 12l-26 12m60-12l26-12m-26 12l26 12"/>
+  <path d="M195 236l-13-17m13 17l17-13m510 13l13-17m-13 17l-17-13"/>
+</g>
+</svg>
