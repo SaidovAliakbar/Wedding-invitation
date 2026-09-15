@@ -1,0 +1,13 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.131.2"
+  }
+}
