@@ -10,3 +10,6 @@ binding = "ASSETS"
 binding = "RSVP_DB"
 database_name = "wedding-rsvp"
 database_id = "b012da1e-b053-4974-9d4f-8f52d69be536"
+
+[vars]
+ADMIN_PASSWORD = "1"
